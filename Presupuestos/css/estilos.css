@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 .limpiarEstilos::after {
     content: "";
     display: table;
