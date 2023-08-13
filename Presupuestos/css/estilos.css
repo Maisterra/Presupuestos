@@ -251,6 +251,8 @@ h2 {
     display: none;
 }
 
+
+
 .elemento_eliminar--btn:focus { outline: none; }
 .elemento_eliminar--btn:active { transform: translateY(2px); }
 

@@ -1,60 +1,66 @@
 
-//Cabecero
-const cargarCabecero=()=>{
-    const presupuesto = totalIngresos () - totalEgresos ();
-    const porcentajeEgreso = totalEgresos () / totalIngresos ();
 
-    console.log(presupuesto);
-console.log(porcentajeEgreso);
-console.log(totalIngresos());
-console.log(totalEgresos());
+// Función flecha para dar formato de moneda a presupuesto
+const formatoMoneda = (presupuesto) => {
+  return presupuesto.toLocaleString('es', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 2,
+  });
+};
 
-};  
+//Función flecha para dar formato de porcentaje
+const formatoPorcentaje = (porcentajeEgreso) => {
+    return porcentajeEgreso.toLocaleString('es', {
+      style: 'percent',
+      maximumFractionDigits: 1,
+    });
+  };
 
 
+
+// Ingresos del cabecero. Aquí debe hacerse el input de los igresos.
+const ingresos = [100, 500];
 
 const totalIngresos = () => {
-    let totalIngreso=0;
-    
+    let totalIngreso = 0;
+
     for (const ingreso of ingresos) {
         totalIngreso += ingreso;
-        
     }
-return totalIngreso;
+    return totalIngreso;
 
 };
+
+//document.getElementById("prueba").innerHTML=totalIngresos();
+
+
+//Egresos del cabecero. Aquí debe hacerse el input de los egresos
+const egresos = [10, 28,];
 
 const totalEgresos = () => {
-    let totalEgreso=0;
+    let totalEgreso = 0;
     for (const egreso of egresos) {
         totalEgreso += egreso;
-        
     }
-return totalEgreso;
-
-
+    return totalEgreso;
 };
 
 
-const formatoMoneda (valor) => {
-    const opciones
-    style: "moneda",
-    moneda: "MXN",
-    maximumFractionDigits: 2,
+//Cabecero. Calculo del presupuesto y % de egreso
+function cargarCabecero() {
+    const presupuesto = totalIngresos() - totalEgresos();
+    const porcentajeEgreso = totalEgresos() / totalIngresos();
+    const presupuestoMoneda=formatoMoneda(presupuesto);
+    const egresoPorcentuado  =formatoPorcentaje(porcentajeEgreso);
 
-
-    valor.toLocaleString(es - MXN); {
-    }
-    return valor.toLocaleString(es-MXM,)
-    console.log(valor);
-
-    valor=45.654
+    console.log(presupuestoMoneda);
+    console.log(egresoPorcentuado);
+    console.log(totalIngresos());
+    console.log(totalEgresos());
 
 }
 
-
-const ingresos = [100, 200,];
-const egresos = [10, 20,];  
-
 cargarCabecero();
+
 
