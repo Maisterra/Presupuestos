@@ -1,66 +1,29 @@
 
 
-// Función flecha para dar formato de moneda a presupuesto
-const formatoMoneda = (presupuesto) => {
-  return presupuesto.toLocaleString('es', {
-    style: 'currency',
-    currency: 'MXN',
-    maximumFractionDigits: 2,
-  });
-};
 
-//Función flecha para dar formato de porcentaje
-const formatoPorcentaje = (porcentajeEgreso) => {
-    return porcentajeEgreso.toLocaleString('es', {
-      style: 'percent',
-      maximumFractionDigits: 1,
-    });
-  };
+//Clase padre datos para el manejo de datos
+class Dato {
+    constructor(datos) {
+        this.descripcion = datos.descripcion;
+        this.valor = datos.valor;
 
-
-
-// Ingresos del cabecero. Aquí debe hacerse el input de los igresos.
-const ingresos = [100, 500];
-
-const totalIngresos = () => {
-    let totalIngreso = 0;
-
-    for (const ingreso of ingresos) {
-        totalIngreso += ingreso;
     }
-    return totalIngreso;
 
-};
-
-//document.getElementById("prueba").innerHTML=totalIngresos();
-
-
-//Egresos del cabecero. Aquí debe hacerse el input de los egresos
-const egresos = [10, 28,];
-
-const totalEgresos = () => {
-    let totalEgreso = 0;
-    for (const egreso of egresos) {
-        totalEgreso += egreso;
+    //programar los getters: estos son para que regrese el valor que le fue asignado a la propiedad
+    getDescripcion() {
+        return this.descripcion;
     }
-    return totalEgreso;
+    //los setters son los que asignan el valor a la propiedad
+    setDescripcion() {
+        this.descripcion = newDescripcion;
+    }
+    getValor() {
+        return this.valor;
+    }
+    setValor() {
+        this.valor = newValor;
+    }
+
+
 };
-
-
-//Cabecero. Calculo del presupuesto y % de egreso
-function cargarCabecero() {
-    const presupuesto = totalIngresos() - totalEgresos();
-    const porcentajeEgreso = totalEgresos() / totalIngresos();
-    const presupuestoMoneda=formatoMoneda(presupuesto);
-    const egresoPorcentuado  =formatoPorcentaje(porcentajeEgreso);
-
-    console.log(presupuestoMoneda);
-    console.log(egresoPorcentuado);
-    console.log(totalIngresos());
-    console.log(totalEgresos());
-
-}
-
-cargarCabecero();
-
 
